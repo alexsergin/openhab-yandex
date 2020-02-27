@@ -6,10 +6,10 @@ module.exports = {
     host: ['https://myopenhab.org'],
   },
   mongodb: {
-    hosts: ['127.0.0.1'],
-    db: 'openhabyandex',
-    user: '',
-    password: '',
+    hosts: [process.env.MONGO_HOST || '127.0.0.1'],
+    db: process.env.MONGO_DB || 'openhabyandex',
+    user: process.env.MONGO_USER || '',
+    password: process.env.MONGO_PASSWORD || '',
   },
   https: {
     privateKey: '/mnt/data/root/private.pem',
