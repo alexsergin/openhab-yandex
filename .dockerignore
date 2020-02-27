@@ -1,0 +1,14 @@
+Dockerfile
+**/node_modules
+**/__tests__
+**/.DS_Store
+keys
+develop
+npm-debug.log
+yarn-error.log
+.env
+.idea/
+config.js
+config.json
+loki.json
+*.old
