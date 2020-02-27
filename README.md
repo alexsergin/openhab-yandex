@@ -10,8 +10,8 @@
 
 ## Настройка openHAB:
 
-1. Добавить тег [ "Room" ] группам с комнатами, они автоматически добавятся в Яндекс.
-2. Добавить теги [ "Lighting" ] или [ "Switchable" ] к устройствам, которые будут управляться Яндекс.
+1. Добавить тег `[ "Room" ]` группам с комнатами, они автоматически добавятся в Яндекс.
+2. Добавить теги `[ "Lighting" ]` или `[ "Switchable" ]` к устройствам, которые будут управляться Яндекс.
 
 ### Есть официальный опубликованный навык openHAB cloud KnopkaDom.ru
 
@@ -27,24 +27,47 @@
 ## Установка
 
 Настраиваем репозиторий Node JS
+
+```bash
 curl -sL https://deb.nodesource.com/setup_10.x | bash -
+```
+
 Устанавливаем необходимые компоненты
+
+```bash
 apt-get install -y nodejs git make g++ gcc build-essential
+```
+
 Копируем файлы
+
+```bash
 git clone https://github.com/vadim121283/openhab-yandex.git /opt/openhab-yandex
+```
+
 Задаём права.
+
+```bash
 chown -R root:root /opt/openhab-yandex
+```
+
 Заходим в директорию и запускаем установку
+
+```bash
 cd /opt/openhab-yandex
 npm install
+````
 
 Запускаем мост (Перед запуском мост нужно настроить)
+
+```bash
 npm start
+```
 
 ## Автозапуск
 
 В папке /etc/systemd/system/ создайте файл openhabyandex.service и впишите в него:
 
+```
 [Unit]
 Description=yandex2mqtt
 After=network.target
@@ -59,23 +82,28 @@ User=root
 
 [Install]
 WantedBy=multi-user.target
+```
 
 Для включения сервиса впишите в консоль:
 
+```bash
 systemctl enable openhabyandex.service
+```
 
 После этого можно управлять командами:
 
+```bash
 service openhabyandex start
 
 service openhabyandex stop
 
 service openhabyandex restart
+```
 
 ## Настройка
 
 Для работы моста необходим валидный ssl сертификат. Если нет своего домена и белого IP адреса можно воспользоваться Dynamic DNS сервисами. (на пример noip.com). Для получения сертификата можно воспользоваться приложением certbot.
-Все основные настройки моста прописываются в файл config.js. Перед запуском обязательно отредактируйте настройки.
+Все основные настройки моста прописываются в файл `config.js`. Перед запуском обязательно отредактируйте настройки.
 
 ## Создание своего навыка
 
