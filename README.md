@@ -1,7 +1,6 @@
 # openHAB Yandex Smart Home Connector
 
 Мост из Яндекс УД в openHAB на Node.js
-Мой сайт и мои контакты там: http://knopkadom.ru
 
 Работает: Вкл, Выкл, Яркость, Цвет.
 Пока не поддерживается управление температурой и медиа техникой.
@@ -90,7 +89,7 @@ apt-get install -y nodejs git make g++ gcc build-essential
 Копируем файлы
 
 ```bash
-git clone https://github.com/vadim121283/openhab-yandex.git /opt/openhab-yandex
+git clone https://github.com/alexsergin/openhab-yandex.git /opt/openhab-yandex
 ```
 
 Задаём права.
